@@ -72,6 +72,26 @@ jobs:
         shell: bash
         run: flutter build apk --debug 2>&1 | tee build.log
 
+      - name: Commit rebranded tree
+        shell: bash
+        run: |
+          set -o pipefail
+          {
+            printf '\n/android/build/\n/android/app/build/\n/android/.gradle/\n/android/local.properties\n/*.log\n' >> .gitignore
+            git rm -r --cached --ignore-unmatch -q android/build 2>/dev/null || true
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -A
+            echo "=== staged files ==="
+            git diff --cached --name-status
+            if git diff --cached --quiet; then
+              echo "Nothing to commit (already applied)"
+              exit 0
+            fi
+            git commit -m "Rebrand app as Smoker-Agent [skip ci]"
+            git push
+          } 2>&1 | tee commit.log
+
       - name: Publish verification report
         if: always()
         shell: bash
@@ -80,35 +100,16 @@ jobs:
             echo "# Smoker-Agent rebrand - verification report"
             echo
             echo "Job status: ${{ job.status }}"
-            for f in analyze test build; do
+            for f in analyze test build commit; do
               echo
               echo "## $f"
               echo '```'
               tail -60 "$f.log" 2>/dev/null || echo "(not run)"
               echo '```'
             done
-            echo
-            echo "## analyze (all severities, first 120 lines)"
-            echo '```'
-            flutter analyze 2>&1 | head -120 || true
-            echo '```'
           } > rebrand-report.md
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add rebrand-report.md
           git diff --cached --quiet || git commit -m "ci: rebrand verification report [skip ci]"
           git push || true
-
-      - name: Commit rebranded tree
-        run: |
-          printf '\n/android/build/\n/android/app/build/\n' >> .gitignore
-          git rm -r --cached --ignore-unmatch -q android/build 2>/dev/null || true
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
-          if git diff --cached --quiet; then
-            echo "Nothing to commit (already applied)"
-            exit 0
-          fi
-          git commit -m "Rebrand app as Smoker-Agent [skip ci]"
-          git push
