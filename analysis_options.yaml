@@ -1,1 +1,10 @@
 include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  exclude:
+    - build/**
+    # Vendored third-party plugin scaffolding: the example/ and test/ trees are
+    # standalone sub-projects with their own pubspecs and cannot resolve their
+    # imports from the app's analysis context.
+    - local_plugins/**/example/**
+    - local_plugins/**/test/**

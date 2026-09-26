@@ -40,6 +40,26 @@ jobs:
       - name: Resolve dependencies
         run: flutter pub get
 
+      - name: Scope analysis to app code
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          Path("analysis_options.yaml").write_text(
+              "include: package:flutter_lints/flutter.yaml\n"
+              "\n"
+              "analyzer:\n"
+              "  exclude:\n"
+              "    - build/**\n"
+              "    # Vendored third-party plugin scaffolding: the example/ and test/ trees are\n"
+              "    # standalone sub-projects with their own pubspecs and cannot resolve their\n"
+              "    # imports from the app's analysis context.\n"
+              "    - local_plugins/**/example/**\n"
+              "    - local_plugins/**/test/**\n"
+          )
+          print(Path("analysis_options.yaml").read_text())
+          PY
+
       - name: Analyze
         shell: bash
         run: flutter analyze --no-fatal-infos --no-fatal-warnings 2>&1 | tee analyze.log
