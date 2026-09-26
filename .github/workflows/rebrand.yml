@@ -1,0 +1,61 @@
+name: Rebrand to Smoker-Agent
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "tool/rebrand.py"
+      - ".github/workflows/rebrand.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  rebrand:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Apply rebrand (rename, theme, logo, icons)
+        run: |
+          python3 -m pip install --quiet pillow
+          python3 tool/rebrand.py
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Resolve dependencies
+        run: flutter pub get
+
+      - name: Analyze
+        run: flutter analyze --no-fatal-infos
+
+      - name: Test
+        run: flutter test
+
+      - name: Build debug APK (compile check)
+        run: flutter build apk --debug
+
+      - name: Commit rebranded tree
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Nothing to commit (already applied)"
+            exit 0
+          fi
+          git commit -m "Rebrand app as Smoker-Agent [skip ci]"
+          git push
