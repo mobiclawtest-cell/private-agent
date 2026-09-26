@@ -119,7 +119,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
         content: const Text(
           'If Android shows “Restricted setting”, open App Info first, tap the '
           'three-dot menu, and choose “Allow restricted settings”. Then return '
-          'and open Accessibility Settings to enable PrivateAgent Screen Control.',
+          'and open Accessibility Settings to enable Smoker-Agent Screen Control.',
         ),
         actions: [
           TextButton(
@@ -228,9 +228,9 @@ class _OnboardingScreenState extends State<OnboardingScreen>
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: const Text(
-                'Configuration validated! Launching PrivateAgent...',
+                'Configuration validated! Launching Smoker-Agent...',
               ),
-              backgroundColor: Colors.indigoAccent,
+              backgroundColor: Colors.orangeAccent,
               behavior: SnackBarBehavior.floating,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12),
@@ -310,7 +310,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
         final isDark = Theme.of(context).brightness == Brightness.dark;
         showModalBottomSheet(
           context: context,
-          backgroundColor: isDark ? const Color(0xFF161329) : Colors.white,
+          backgroundColor: isDark ? const Color(0xFF1A120D) : Colors.white,
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
           ),
@@ -405,8 +405,8 @@ class _OnboardingScreenState extends State<OnboardingScreen>
 
     return Scaffold(
       backgroundColor: isDark
-          ? const Color(0xFF0B0F19)
-          : const Color(0xFFF8FAFC),
+          ? const Color(0xFF120D0A)
+          : const Color(0xFFFAF6F1),
       body: Stack(
         children: [
           // Background fluid glow effect
@@ -473,11 +473,11 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                 gradient: RadialGradient(
                   colors: [
                     isDark
-                        ? const Color(0xFF6366F1).withOpacity(0.18)
-                        : const Color(0xFF4F46E5).withOpacity(0.08),
+                        ? const Color(0xFFFB923C).withOpacity(0.18)
+                        : const Color(0xFFEA580C).withOpacity(0.08),
                     isDark
-                        ? const Color(0xFF6366F1).withOpacity(0)
-                        : const Color(0xFF4F46E5).withOpacity(0),
+                        ? const Color(0xFFFB923C).withOpacity(0)
+                        : const Color(0xFFEA580C).withOpacity(0),
                   ],
                 ),
               ),
@@ -494,11 +494,11 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                 gradient: RadialGradient(
                   colors: [
                     isDark
-                        ? const Color(0xFF38BDF8).withOpacity(0.15)
-                        : const Color(0xFF0EA5E9).withOpacity(0.06),
+                        ? const Color(0xFFFBBF24).withOpacity(0.15)
+                        : const Color(0xFFF59E0B).withOpacity(0.06),
                     isDark
-                        ? const Color(0xFF38BDF8).withOpacity(0)
-                        : const Color(0xFF0EA5E9).withOpacity(0),
+                        ? const Color(0xFFFBBF24).withOpacity(0)
+                        : const Color(0xFFF59E0B).withOpacity(0),
                   ],
                 ),
               ),
@@ -532,8 +532,8 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                     : isCompleted
                     ? Theme.of(context).primaryColor.withOpacity(0.5)
                     : (isDark
-                          ? const Color(0xFF1E293B)
-                          : const Color(0xFFE2E8F0)),
+                          ? const Color(0xFF2A211A)
+                          : const Color(0xFFEDE2D4)),
                 boxShadow: isActive
                     ? [
                         BoxShadow(
@@ -575,8 +575,8 @@ class _OnboardingScreenState extends State<OnboardingScreen>
         color: isActive
             ? Theme.of(context).primaryColor
             : isCompleted
-            ? (isDark ? const Color(0xFF94A3B8) : const Color(0xFF475569))
-            : (isDark ? const Color(0xFF475569) : const Color(0xFF94A3B8)),
+            ? (isDark ? const Color(0xFFA89684) : const Color(0xFF5C4B3D))
+            : (isDark ? const Color(0xFF5C4B3D) : const Color(0xFFA89684)),
       ),
     );
   }
@@ -607,7 +607,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                 height: 140,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: isDark ? const Color(0xFF151D30) : Colors.white,
+                  color: isDark ? const Color(0xFF1E1811) : Colors.white,
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black.withOpacity(isDark ? 0.25 : 0.08),
@@ -631,21 +631,21 @@ class _OnboardingScreenState extends State<OnboardingScreen>
           const Spacer(flex: 2),
           // Clean Title
           Text(
-            'PrivateAgent',
+            'Smoker-Agent',
             style: TextStyle(
               fontSize: 38,
               fontWeight: FontWeight.w900,
-              color: isDark ? Colors.white : const Color(0xFF1E293B),
+              color: isDark ? Colors.white : const Color(0xFF2A211A),
               letterSpacing: -0.5,
             ),
           ),
           const SizedBox(height: 16),
           Text(
-            'Your local, secure, and smart mobile companion. PrivateAgent can navigate apps, perform operations, and speak with you.',
+            'Your local, secure, and smart mobile companion. Smoker-Agent can navigate apps, perform operations, and speak with you.',
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 15,
-              color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF475569),
+              color: isDark ? const Color(0xFFA89684) : const Color(0xFF5C4B3D),
               height: 1.55,
             ),
           ),
@@ -766,8 +766,8 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                   style: TextStyle(
                     fontSize: 12,
                     color: isDark
-                        ? const Color(0xFF94A3B8)
-                        : const Color(0xFF475569),
+                        ? const Color(0xFFA89684)
+                        : const Color(0xFF5C4B3D),
                   ),
                 ),
               ],
@@ -799,7 +799,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
             'Permissions are needed to interact with other apps.',
             style: TextStyle(
               fontSize: 14,
-              color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF475569),
+              color: isDark ? const Color(0xFFA89684) : const Color(0xFF5C4B3D),
             ),
           ),
           const SizedBox(height: 16),
@@ -829,7 +829,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                   const SizedBox(height: 12),
                   _buildPermissionCard(
                     'Display Over Other Apps (Floating Bubble)',
-                    'Allows PrivateAgent to show a floating overlay bubble when backgrounded or executing a task so you can monitor progress and execute actions.',
+                    'Allows Smoker-Agent to show a floating overlay bubble when backgrounded or executing a task so you can monitor progress and execute actions.',
                     Icons.layers_rounded,
                     _isOverlayGranted,
                     _requestOverlayPermission,
@@ -840,7 +840,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                 _buildSectionHeader('OPTIONAL', isDark),
                 _buildPermissionCard(
                   'Notifications',
-                  'Allows PrivateAgent to show ongoing tasks, alerts, and execution updates in your notification tray.',
+                  'Allows Smoker-Agent to show ongoing tasks, alerts, and execution updates in your notification tray.',
                   Icons.notifications_rounded,
                   _isNotificationsGranted,
                   () => _requestPermission(Permission.notification),
@@ -891,7 +891,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                 style: TextButton.styleFrom(
                   foregroundColor: isDark
                       ? Colors.white
-                      : const Color(0xFF475569),
+                      : const Color(0xFF5C4B3D),
                 ),
                 child: const Text(
                   'Back',
@@ -906,8 +906,8 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                   color: _canProceedToModel
                       ? Theme.of(context).colorScheme.primary
                       : (isDark
-                            ? const Color(0xFF1E293B)
-                            : const Color(0xFFE2E8F0)),
+                            ? const Color(0xFF2A211A)
+                            : const Color(0xFFEDE2D4)),
                   boxShadow: _canProceedToModel
                       ? [
                           BoxShadow(
@@ -934,8 +934,8 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                     foregroundColor: Colors.white,
                     shadowColor: Colors.transparent,
                     disabledForegroundColor: isDark
-                        ? const Color(0xFF475569)
-                        : const Color(0xFF94A3B8),
+                        ? const Color(0xFF5C4B3D)
+                        : const Color(0xFFA89684),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(14),
                     ),
@@ -969,7 +969,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
         style: TextStyle(
           fontSize: 11,
           fontWeight: FontWeight.w800,
-          color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF475569),
+          color: isDark ? const Color(0xFFA89684) : const Color(0xFF5C4B3D),
           letterSpacing: 1.5,
         ),
       ),
@@ -1070,8 +1070,8 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                   fontSize: 12.5,
                   height: 1.45,
                   color: isDark
-                      ? const Color(0xFF94A3B8)
-                      : const Color(0xFF475569),
+                      ? const Color(0xFFA89684)
+                      : const Color(0xFF5C4B3D),
                 ),
               ),
             ],
@@ -1102,7 +1102,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
             'Select a provider to prefill API details automatically.',
             style: TextStyle(
               fontSize: 13,
-              color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF475569),
+              color: isDark ? const Color(0xFFA89684) : const Color(0xFF5C4B3D),
             ),
           ),
           const SizedBox(height: 20),
@@ -1254,7 +1254,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                 style: TextButton.styleFrom(
                   foregroundColor: isDark
                       ? Colors.white
-                      : const Color(0xFF475569),
+                      : const Color(0xFF5C4B3D),
                 ),
                 child: const Text(
                   'Back',
@@ -1268,8 +1268,8 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                   borderRadius: BorderRadius.circular(16),
                   color: _isValidating
                       ? (isDark
-                            ? const Color(0xFF1E293B)
-                            : const Color(0xFFE2E8F0))
+                            ? const Color(0xFF2A211A)
+                            : const Color(0xFFEDE2D4))
                       : Theme.of(context).colorScheme.primary,
                   boxShadow: _isValidating
                       ? null
@@ -1430,7 +1430,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
           labelText: label,
           labelStyle: TextStyle(
             fontSize: 13,
-            color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF475569),
+            color: isDark ? const Color(0xFFA89684) : const Color(0xFF5C4B3D),
           ),
           hintText: hint,
           hintStyle: TextStyle(

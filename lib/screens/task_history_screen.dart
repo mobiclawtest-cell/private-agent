@@ -241,7 +241,7 @@ class _TaskHistoryScreenState extends State<TaskHistoryScreen> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: BoxDecoration(
-        color: isDark ? const Color(0xFF1E293B) : const Color(0xFFF1F5F9),
+        color: isDark ? const Color(0xFF2A211A) : const Color(0xFFF4EDE4),
         borderRadius: BorderRadius.circular(14),
         border: Border.all(
           color: Theme.of(context).colorScheme.onSurface.withOpacity(0.06),
@@ -254,7 +254,7 @@ class _TaskHistoryScreenState extends State<TaskHistoryScreen> {
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.w900,
-              color: color ?? (isDark ? Colors.white : const Color(0xFF1E293B)),
+              color: color ?? (isDark ? Colors.white : const Color(0xFF2A211A)),
             ),
           ),
           const SizedBox(height: 4),
@@ -263,7 +263,7 @@ class _TaskHistoryScreenState extends State<TaskHistoryScreen> {
             style: TextStyle(
               fontSize: 9,
               fontWeight: FontWeight.w800,
-              color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
+              color: isDark ? const Color(0xFFA89684) : const Color(0xFF8A7566),
               letterSpacing: 0.5,
             ),
           ),

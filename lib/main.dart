@@ -19,13 +19,13 @@ void overlayMain() {
         scaffoldBackgroundColor: Colors.transparent,
         cardColor: Colors.white,
         dialogBackgroundColor: Colors.transparent,
-        primaryColor: const Color(0xFF4F46E5),
+        primaryColor: const Color(0xFFEA580C),
         useMaterial3: true,
         colorScheme: const ColorScheme.light(
           background: Colors.transparent,
-          primary: Color(0xFF4F46E5),
+          primary: Color(0xFFEA580C),
           surface: Colors.white,
-          onSurface: Color(0xFF1E293B),
+          onSurface: Color(0xFF2A211A),
           onPrimary: Colors.white,
         ),
       ),
@@ -67,12 +67,12 @@ void main() async {
 
   final onboardingCompleted = prefs.getBool('onboarding_completed') ?? false;
 
-  runApp(PrivateAgentApp(onboardingCompleted: onboardingCompleted));
+  runApp(SmokerAgentApp(onboardingCompleted: onboardingCompleted));
 }
 
-class PrivateAgentApp extends StatelessWidget {
+class SmokerAgentApp extends StatelessWidget {
   final bool onboardingCompleted;
-  const PrivateAgentApp({super.key, required this.onboardingCompleted});
+  const SmokerAgentApp({super.key, required this.onboardingCompleted});
 
   @override
   Widget build(BuildContext context) {
@@ -80,21 +80,21 @@ class PrivateAgentApp extends StatelessWidget {
       valueListenable: themeNotifier,
       builder: (context, ThemeMode currentMode, child) {
         return MaterialApp(
-          title: 'PrivateAgent',
+          title: 'Smoker-Agent',
           debugShowCheckedModeBanner: false,
           themeMode: currentMode,
           theme: ThemeData(
             brightness: Brightness.light,
-            primaryColor: const Color(0xFF4F46E5), // Indigo-600
+            primaryColor: const Color(0xFFEA580C), // Ember-600
             scaffoldBackgroundColor: const Color(
-              0xFFF8FAFC,
-            ), // Slate-50 background
+              0xFFFAF6F1,
+            ), // Warm bone background
             colorScheme: const ColorScheme.light(
-              primary: Color(0xFF4F46E5), // Indigo-600
-              secondary: Color(0xFF0EA5E9), // Sky-500
+              primary: Color(0xFFEA580C), // Ember-600
+              secondary: Color(0xFFF59E0B), // Amber-500
               surface: Color(0xFFFFFFFF),
-              onSurface: Color(0xFF1E293B), // Slate-800
-              surfaceContainerHighest: Color(0xFFF1F5F9), // Slate-100
+              onSurface: Color(0xFF2A211A), // Smoked charcoal
+              surfaceContainerHighest: Color(0xFFF4EDE4), // Warm sand
               error: Colors.redAccent,
             ),
             useMaterial3: true,
@@ -103,8 +103,8 @@ class PrivateAgentApp extends StatelessWidget {
               elevation: 0,
               scrolledUnderElevation: 0,
               backgroundColor: Colors.transparent,
-              foregroundColor: Color(0xFF1E293B),
-              iconTheme: IconThemeData(color: Color(0xFF1E293B)),
+              foregroundColor: Color(0xFF2A211A),
+              iconTheme: IconThemeData(color: Color(0xFF2A211A)),
               systemOverlayStyle: SystemUiOverlayStyle(
                 statusBarColor: Colors.transparent,
                 statusBarIconBrightness: Brightness.dark,
@@ -115,26 +115,26 @@ class PrivateAgentApp extends StatelessWidget {
               elevation: 0,
               color: const Color(0xFFFFFFFF),
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(24),
                 side: const BorderSide(
-                  color: Color(0xFFE2E8F0),
+                  color: Color(0xFFEDE2D4),
                   width: 1.2,
-                ), // Slate-200
+                ), // Warm border
               ),
             ),
           ),
           darkTheme: ThemeData(
             brightness: Brightness.dark,
-            primaryColor: const Color(0xFF6366F1), // Indigo-500
+            primaryColor: const Color(0xFFFB923C), // Ember-400
             scaffoldBackgroundColor: const Color(
-              0xFF0B0F19,
-            ), // Midnight deep slate
+              0xFF120D0A,
+            ), // Deep smoke black
             colorScheme: const ColorScheme.dark(
-              primary: Color(0xFF6366F1), // Indigo-500
-              secondary: Color(0xFF38BDF8), // Sky-400
-              surface: Color(0xFF151D30), // Midnight gray-blue card background
-              onSurface: Color(0xFFF8FAFC), // Slate-50 text
-              surfaceContainerHighest: Color(0xFF1E293B), // Slate-800
+              primary: Color(0xFFFB923C), // Ember-400
+              secondary: Color(0xFFFBBF24), // Amber-400
+              surface: Color(0xFF1E1811), // Warm charcoal card background
+              onSurface: Color(0xFFF5EDE4), // Bone white text
+              surfaceContainerHighest: Color(0xFF2A211A), // Smoked charcoal
               error: Colors.redAccent,
             ),
             useMaterial3: true,
@@ -143,8 +143,8 @@ class PrivateAgentApp extends StatelessWidget {
               elevation: 0,
               scrolledUnderElevation: 0,
               backgroundColor: Colors.transparent,
-              foregroundColor: Color(0xFFF8FAFC),
-              iconTheme: IconThemeData(color: Color(0xFFF8FAFC)),
+              foregroundColor: Color(0xFFF5EDE4),
+              iconTheme: IconThemeData(color: Color(0xFFF5EDE4)),
               systemOverlayStyle: SystemUiOverlayStyle(
                 statusBarColor: Colors.transparent,
                 statusBarIconBrightness: Brightness.light,
@@ -153,11 +153,11 @@ class PrivateAgentApp extends StatelessWidget {
             ),
             cardTheme: CardThemeData(
               elevation: 0,
-              color: const Color(0xFF151D30),
+              color: const Color(0xFF1E1811),
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(24),
                 side: BorderSide(
-                  color: const Color(0xFF243049).withOpacity(0.4),
+                  color: const Color(0xFF35291E).withOpacity(0.4),
                   width: 1.2,
                 ),
               ),

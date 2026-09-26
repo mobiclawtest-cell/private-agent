@@ -287,8 +287,8 @@ class _SettingsScreenState extends State<SettingsScreen>
                           style: TextStyle(
                             fontSize: 12,
                             color: isDark
-                                ? const Color(0xFF94A3B8)
-                                : const Color(0xFF475569),
+                                ? const Color(0xFFA89684)
+                                : const Color(0xFF5C4B3D),
                           ),
                         ),
                       ],
@@ -318,28 +318,28 @@ class _SettingsScreenState extends State<SettingsScreen>
       prefixIcon: prefixIcon,
       suffixIcon: suffixIcon,
       filled: true,
-      fillColor: isDark ? const Color(0xFF0F172A) : const Color(0xFFF8FAFC),
+      fillColor: isDark ? const Color(0xFF1C1512) : const Color(0xFFFAF6F1),
       labelStyle: TextStyle(
-        color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
+        color: isDark ? const Color(0xFFA89684) : const Color(0xFF8A7566),
         fontSize: 13,
         fontWeight: FontWeight.w600,
       ),
       hintStyle: TextStyle(
-        color: isDark ? const Color(0xFF475569) : const Color(0xFF94A3B8),
+        color: isDark ? const Color(0xFF5C4B3D) : const Color(0xFFA89684),
         fontSize: 13,
       ),
       contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
         borderSide: BorderSide(
-          color: isDark ? const Color(0xFF1E293B) : const Color(0xFFE2E8F0),
+          color: isDark ? const Color(0xFF2A211A) : const Color(0xFFEDE2D4),
           width: 1.2,
         ),
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
         borderSide: BorderSide(
-          color: isDark ? const Color(0xFF1E293B) : const Color(0xFFE2E8F0),
+          color: isDark ? const Color(0xFF2A211A) : const Color(0xFFEDE2D4),
           width: 1.2,
         ),
       ),
@@ -386,13 +386,13 @@ class _SettingsScreenState extends State<SettingsScreen>
                         ).colorScheme.primary,
                         selectedForegroundColor: Colors.white,
                         backgroundColor: isDark
-                            ? const Color(0xFF1E293B)
+                            ? const Color(0xFF2A211A)
                             : Colors.white,
                         foregroundColor: isDark ? Colors.white : Colors.black87,
                         side: BorderSide(
                           color: isDark
-                              ? const Color(0xFF334155)
-                              : const Color(0xFFE2E8F0),
+                              ? const Color(0xFF3D322A)
+                              : const Color(0xFFEDE2D4),
                         ),
                       ),
                       segments: [
@@ -726,7 +726,7 @@ class _SettingsScreenState extends State<SettingsScreen>
                       if (await FlutterOverlayWindow.isActive() == false) {
                         await FlutterOverlayWindow.showOverlay(
                           enableDrag: true,
-                          overlayTitle: "PrivateAgent",
+                          overlayTitle: "Smoker-Agent",
                           overlayContent: "Floating Assistant",
                           flag: OverlayFlag.focusPointer,
                           alignment: OverlayAlignment.centerRight,
@@ -825,48 +825,18 @@ class _SettingsScreenState extends State<SettingsScreen>
           // 9. About / Links Card
           _buildSettingsCard(
             icon: Icons.info_outline_rounded,
-            title: 'About PrivateAgent',
-            subtitle: 'Resources and repository access',
+            title: 'About Smoker-Agent',
+            subtitle: 'Based on the original project by orailnoor & Tech Jarves',
             isDark: isDark,
             children: [
               ListTile(
                 contentPadding: EdgeInsets.zero,
                 title: const Text('Project Repository'),
-                subtitle: const Text('View source code on GitHub'),
+                subtitle: const Text('Original project by orailnoor & Tech Jarves'),
                 leading: const Icon(Icons.code_rounded),
                 onTap: () {
                   launchUrl(
                     Uri.parse('https://github.com/orailnoor/private-agent'),
-                    mode: LaunchMode.externalApplication,
-                  );
-                },
-              ),
-              ListTile(
-                contentPadding: EdgeInsets.zero,
-                title: const Text('Orailnoor on YouTube'),
-                subtitle: const Text('Subscribe for tutorials and updates'),
-                leading: const Icon(
-                  Icons.play_circle_fill_rounded,
-                  color: Colors.red,
-                ),
-                onTap: () {
-                  launchUrl(
-                    Uri.parse('https://www.youtube.com/orailnoor'),
-                    mode: LaunchMode.externalApplication,
-                  );
-                },
-              ),
-              ListTile(
-                contentPadding: EdgeInsets.zero,
-                title: const Text('Tech Jarves on YouTube'),
-                subtitle: const Text('Subscribe for tutorials and updates'),
-                leading: const Icon(
-                  Icons.play_circle_fill_rounded,
-                  color: Colors.red,
-                ),
-                onTap: () {
-                  launchUrl(
-                    Uri.parse('https://www.youtube.com/techjarves'),
                     mode: LaunchMode.externalApplication,
                   );
                 },
@@ -1070,7 +1040,7 @@ class _SettingsScreenState extends State<SettingsScreen>
                 const SizedBox(height: 12),
                 if (!isRunning) ...[
                   const Text(
-                    'Tap below to open Accessibility Settings, then find "PrivateAgent Screen Control" and enable it.',
+                    'Tap below to open Accessibility Settings, then find "Smoker-Agent Screen Control" and enable it.',
                     style: TextStyle(fontSize: 13),
                   ),
                   const SizedBox(height: 12),

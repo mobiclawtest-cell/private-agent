@@ -161,7 +161,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
           action,
           aiService: _aiService,
           onProgress: (msg) {
-            developer.log('Task progress: $msg', name: 'PrivateAgent');
+            developer.log('Task progress: $msg', name: 'Smoker-Agent');
             _sendOverlayEvent('OVERLAY_PROGRESS', msg);
             if (mounted) {
               setState(() {
@@ -238,14 +238,14 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     if (!FeatureFlags.floatingOverlayEnabled) return;
     if (!await FlutterOverlayWindow.isPermissionGranted()) return;
 
-    // Never cover PrivateAgent itself. The lifecycle observer will create the
+    // Never cover Smoker-Agent itself. The lifecycle observer will create the
     // overlay after an automated action moves this app to the background.
     if (_appLifecycleState != AppLifecycleState.paused) return;
 
     if (!await FlutterOverlayWindow.isActive()) {
       await FlutterOverlayWindow.showOverlay(
         enableDrag: true,
-        overlayTitle: 'PrivateAgent',
+        overlayTitle: 'Smoker-Agent',
         overlayContent: 'Performing task...',
         flag: OverlayFlag.focusPointer,
         alignment: OverlayAlignment.centerRight,
@@ -435,7 +435,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
       if (await FlutterOverlayWindow.isActive()) return;
       await FlutterOverlayWindow.showOverlay(
         enableDrag: true,
-        overlayTitle: "PrivateAgent",
+        overlayTitle: "Smoker-Agent",
         overlayContent: _isLoading
             ? "Performing task..."
             : "Floating Assistant",
@@ -480,14 +480,14 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
 
     return Scaffold(
       backgroundColor: isDark
-          ? const Color(0xFF0C0A15)
+          ? const Color(0xFF0F0A07)
           : const Color(0xFFFFFFFF),
       appBar: AppBar(
         title: RichText(
           text: TextSpan(
             style: TextStyle(
               fontSize: 20,
-              color: isDark ? Colors.white : const Color(0xFF1E293B),
+              color: isDark ? Colors.white : const Color(0xFF2A211A),
             ),
             children: [
               TextSpan(
@@ -652,7 +652,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                         child: CircularProgressIndicator(
                           strokeWidth: 2,
                           valueColor: AlwaysStoppedAnimation<Color>(
-                            Colors.indigoAccent,
+                            Colors.orangeAccent,
                           ),
                         ),
                       ),
@@ -662,8 +662,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                         style: TextStyle(
                           fontSize: 12,
                           color: isDark
-                              ? const Color(0xFF9E9BAC)
-                              : const Color(0xFF6C6A7C),
+                              ? const Color(0xFFA79A8C)
+                              : const Color(0xFF7A6C5E),
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -708,14 +708,14 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   }
 
   Widget _buildDrawer(BuildContext context, bool isDark) {
-    final drawerBg = isDark ? const Color(0xFF0B0F19) : const Color(0xFFF8FAFC);
+    final drawerBg = isDark ? const Color(0xFF120D0A) : const Color(0xFFFAF6F1);
     final textStyle = TextStyle(
-      color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF475569),
+      color: isDark ? const Color(0xFFA89684) : const Color(0xFF5C4B3D),
       fontWeight: FontWeight.w600,
       fontSize: 13.5,
     );
     final headerStyle = TextStyle(
-      color: isDark ? Colors.white : const Color(0xFF1E293B),
+      color: isDark ? Colors.white : const Color(0xFF2A211A),
       fontSize: 17,
       fontWeight: FontWeight.w900,
       letterSpacing: -0.5,
@@ -742,7 +742,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                   size: 26,
                 ),
                 const SizedBox(width: 12),
-                Text('PrivateAgent', style: headerStyle),
+                Text('Smoker-Agent', style: headerStyle),
               ],
             ),
           ),
@@ -888,7 +888,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                             color: isCurrent
                                 ? (isDark
                                       ? Colors.white
-                                      : const Color(0xFF1E293B))
+                                      : const Color(0xFF2A211A))
                                 : null,
                           ),
                         ),
@@ -982,11 +982,11 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                 gradient: RadialGradient(
                   colors: [
                     isDark
-                        ? const Color(0xFF6366F1).withOpacity(0.24)
-                        : const Color(0xFF4F46E5).withOpacity(0.12),
+                        ? const Color(0xFFFB923C).withOpacity(0.24)
+                        : const Color(0xFFEA580C).withOpacity(0.12),
                     isDark
-                        ? const Color(0xFF6366F1).withOpacity(0)
-                        : const Color(0xFF4F46E5).withOpacity(0),
+                        ? const Color(0xFFFB923C).withOpacity(0)
+                        : const Color(0xFFEA580C).withOpacity(0),
                   ],
                 ),
               ),
@@ -1003,11 +1003,11 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                 gradient: RadialGradient(
                   colors: [
                     isDark
-                        ? const Color(0xFF38BDF8).withOpacity(0.18)
-                        : const Color(0xFF0EA5E9).withOpacity(0.09),
+                        ? const Color(0xFFFBBF24).withOpacity(0.18)
+                        : const Color(0xFFF59E0B).withOpacity(0.09),
                     isDark
-                        ? const Color(0xFF38BDF8).withOpacity(0)
-                        : const Color(0xFF0EA5E9).withOpacity(0),
+                        ? const Color(0xFFFBBF24).withOpacity(0)
+                        : const Color(0xFFF59E0B).withOpacity(0),
                   ],
                 ),
               ),
@@ -1019,7 +1019,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   }
 
   Widget _buildModeSelector(bool isDark) {
-    final activeBg = isDark ? const Color(0xFF1E293B) : const Color(0xFFE2E8F0);
+    final activeBg = isDark ? const Color(0xFF2A211A) : const Color(0xFFEDE2D4);
 
     return Center(
       child: Container(
@@ -1095,8 +1095,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
               color: isSelected
                   ? Colors.white
                   : (isDark
-                        ? const Color(0xFF94A3B8)
-                        : const Color(0xFF475569)),
+                        ? const Color(0xFFA89684)
+                        : const Color(0xFF5C4B3D)),
             ),
             const SizedBox(width: 8),
             Text(
@@ -1105,8 +1105,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                 color: isSelected
                     ? Colors.white
                     : (isDark
-                          ? const Color(0xFF94A3B8)
-                          : const Color(0xFF475569)),
+                          ? const Color(0xFFA89684)
+                          : const Color(0xFF5C4B3D)),
                 fontWeight: FontWeight.bold,
                 fontSize: 13,
               ),
@@ -1162,8 +1162,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                       fontSize: 30,
                       fontWeight: FontWeight.w300,
                       color: isDark
-                          ? const Color(0xFF94A3B8)
-                          : const Color(0xFF64748B),
+                          ? const Color(0xFFA89684)
+                          : const Color(0xFF8A7566),
                       letterSpacing: -1.5,
                       height: 1.1,
                     ),
@@ -1191,8 +1191,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                   fontSize: 11,
                   fontWeight: FontWeight.w800,
                   color: isDark
-                      ? const Color(0xFF94A3B8)
-                      : const Color(0xFF475569),
+                      ? const Color(0xFFA89684)
+                      : const Color(0xFF5C4B3D),
                   letterSpacing: 1.5,
                 ),
               ),
@@ -1218,13 +1218,13 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                         ),
                         decoration: BoxDecoration(
                           color: isDark
-                              ? const Color(0xFF151D30)
+                              ? const Color(0xFF1E1811)
                               : Colors.white,
                           borderRadius: BorderRadius.circular(16),
                           border: Border.all(
                             color: isDark
-                                ? const Color(0xFF243049).withOpacity(0.4)
-                                : const Color(0xFFE2E8F0),
+                                ? const Color(0xFF35291E).withOpacity(0.4)
+                                : const Color(0xFFEDE2D4),
                             width: 1.2,
                           ),
                           boxShadow: [
@@ -1244,8 +1244,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                               fontSize: 12.5,
                               fontWeight: FontWeight.w600,
                               color: isDark
-                                  ? const Color(0xFFF8FAFC)
-                                  : const Color(0xFF1E293B),
+                                  ? const Color(0xFFFAF6F1)
+                                  : const Color(0xFF2A211A),
                             ),
                           ),
                         ),

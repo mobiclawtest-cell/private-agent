@@ -123,8 +123,8 @@ class _OverlayAppState extends State<OverlayApp> {
   Future<void> _initializeServices() async {
     // 1. Send registration broadcast first so native MethodChannels are active
     final intent = const AndroidIntent(
-      action: 'com.orailnoor.privateagent.REGISTER_BACKGROUND_CHANNELS',
-      package: 'com.orailnoor.privateagent',
+      action: 'com.smoke.REGISTER_BACKGROUND_CHANNELS',
+      package: 'com.smoke',
     );
     try {
       await intent.sendBroadcast();
@@ -334,8 +334,8 @@ class _OverlayAppState extends State<OverlayApp> {
     const intent = AndroidIntent(
       action: 'android.intent.action.MAIN',
       category: 'android.intent.category.LAUNCHER',
-      package: 'com.orailnoor.privateagent',
-      componentName: 'com.orailnoor.privateagent.MainActivity',
+      package: 'com.smoke',
+      componentName: 'com.smoke.MainActivity',
       flags: <int>[
         Flag.FLAG_ACTIVITY_NEW_TASK,
         Flag.FLAG_ACTIVITY_REORDER_TO_FRONT,
@@ -393,7 +393,7 @@ class _OverlayAppState extends State<OverlayApp> {
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(24),
-          border: Border.all(color: const Color(0xFFEAEAEA), width: 1),
+          border: Border.all(color: const Color(0xFFEBE3D8), width: 1),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.15),
@@ -410,7 +410,7 @@ class _OverlayAppState extends State<OverlayApp> {
               padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
               decoration: const BoxDecoration(
                 border: Border(
-                  bottom: BorderSide(color: Color(0xFFF2F2F2), width: 1),
+                  bottom: BorderSide(color: Color(0xFFF4EFE7), width: 1),
                 ),
               ),
               child: Row(
@@ -439,7 +439,7 @@ class _OverlayAppState extends State<OverlayApp> {
                     children: [
                       Semantics(
                         button: true,
-                        label: 'Open PrivateAgent',
+                        label: 'Open Smoker-Agent',
                         child: GestureDetector(
                           onTap: () => unawaited(_openMainApp()),
                           child: const Padding(
@@ -457,7 +457,7 @@ class _OverlayAppState extends State<OverlayApp> {
                         child: Container(
                           padding: const EdgeInsets.all(4),
                           decoration: const BoxDecoration(
-                            color: Color(0xFFF2F2F5),
+                            color: Color(0xFFF4EFEA),
                             shape: BoxShape.circle,
                           ),
                           child: const Icon(
@@ -476,7 +476,7 @@ class _OverlayAppState extends State<OverlayApp> {
             // Message Log List
             Expanded(
               child: Container(
-                color: const Color(0xFFF8FAFC),
+                color: const Color(0xFFFAF6F1),
                 child: ListView.builder(
                   controller: _scrollController,
                   physics: const BouncingScrollPhysics(),
@@ -494,7 +494,7 @@ class _OverlayAppState extends State<OverlayApp> {
               decoration: const BoxDecoration(
                 color: Colors.white,
                 border: Border(
-                  top: BorderSide(color: Color(0xFFF2F2F2), width: 1),
+                  top: BorderSide(color: Color(0xFFF4EFE7), width: 1),
                 ),
                 borderRadius: BorderRadius.vertical(
                   bottom: Radius.circular(24),
@@ -576,7 +576,7 @@ class _OverlayAppState extends State<OverlayApp> {
                             width: 28,
                             height: 28,
                             decoration: const BoxDecoration(
-                              color: Color(0xFF4F46E5),
+                              color: Color(0xFFEA580C),
                               shape: BoxShape.circle,
                             ),
                             child: const Icon(

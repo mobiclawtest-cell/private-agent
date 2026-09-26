@@ -8,3 +8,4 @@ analyzer:
     # imports from the app's analysis context.
     - local_plugins/**/example/**
     - local_plugins/**/test/**
+    - android/**
