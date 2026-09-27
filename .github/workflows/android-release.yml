@@ -3,11 +3,15 @@ name: Android release artifacts
 on:
   workflow_dispatch:
   push:
+    branches:
+      - main
     tags:
       - "v*"
+    paths:
+      - "tool/release.yaml"
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build:
@@ -50,3 +54,42 @@ jobs:
         with:
           name: smoker-agent-android
           path: dist/*
+
+      - name: Publish GitHub release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [ "$GITHUB_REF_TYPE" = "tag" ]; then
+            TAG="$GITHUB_REF_NAME"
+          else
+            TAG="$(sed -n 's/^tag: *//p' tool/release.yaml | head -n1)"
+          fi
+          echo "Releasing $TAG"
+          cat > notes.md <<EOF
+          ## Smoker-Agent $TAG
+
+          Download the APK for your device:
+
+          - app-universal-release.apk - any device (ARM64, 32-bit ARM, x86_64), recommended
+          - app-arm64-v8a-release.apk - most modern Android phones
+          - app-armeabi-v7a-release.apk - older 32-bit ARM devices
+          - app-x86_64-release.apk - emulators and x86_64 devices
+
+          SHA-256 checksums for every file are in SHA256SUMS.txt.
+
+          Install: allow install from unknown sources, install the APK (Android 8.0 / API 26 or newer), then enable Smoker-Agent Screen Control in Accessibility Settings. If Android blocks it as a "restricted setting", open Settings -> Apps -> Smoker-Agent -> Allow restricted settings first.
+
+          Release APKs are signed with the debug keystore (the upstream default setup), so they install normally but cannot be uploaded to Google Play as-is.
+
+          Based on the original PrivateAgent project by orailnoor and Tech Jarves: https://github.com/orailnoor/private-agent
+          EOF
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" dist/* --clobber
+          else
+            gh release create "$TAG" dist/* \
+              --target "$GITHUB_SHA" \
+              --title "Smoker-Agent $TAG" \
+              --notes-file notes.md
+          fi
+          echo "Published release $TAG"

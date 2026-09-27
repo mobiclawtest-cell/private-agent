@@ -1,0 +1,8 @@
+# Cutting a release:
+#   1. Bump `version:` in pubspec.yaml (e.g. 1.2.0+2023).
+#   2. Set `tag` below to match (e.g. v1.2.0).
+#   3. Commit and push this file to main.
+#
+# The "Android release artifacts" workflow then builds the release APKs and
+# publishes them as a GitHub release with downloadable files.
+tag: v1.1.0
