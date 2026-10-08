@@ -37,13 +37,15 @@ jobs:
 
       - name: Build universal APK
         run: |
-          flutter build apk --release
+          flutter build apk --release \
+            --dart-define=OPENROUTER_API_KEY=${{ secrets.OPENROUTER_API_KEY }}
           mkdir -p dist
           cp build/app/outputs/flutter-apk/app-release.apk dist/app-universal-release.apk
 
       - name: Build architecture-specific APKs
         run: |
-          flutter build apk --release --split-per-abi
+          flutter build apk --release --split-per-abi \
+            --dart-define=OPENROUTER_API_KEY=${{ secrets.OPENROUTER_API_KEY }}
           cp build/app/outputs/flutter-apk/app-arm64-v8a-release.apk dist/
           cp build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk dist/
           cp build/app/outputs/flutter-apk/app-x86_64-release.apk dist/
@@ -82,7 +84,6 @@ jobs:
 
           Release APKs are signed with the debug keystore (the upstream default setup), so they install normally but cannot be uploaded to Google Play as-is.
 
-          Based on the original PrivateAgent project by orailnoor and Tech Jarves: https://github.com/orailnoor/private-agent
           EOF
           if gh release view "$TAG" >/dev/null 2>&1; then
             gh release upload "$TAG" dist/* --clobber
