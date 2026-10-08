@@ -5,4 +5,4 @@
 #
 # The "Android release artifacts" workflow then builds the release APKs and
 # publishes them as a GitHub release with downloadable files.
-tag: v1.1.0
+tag: v1.1.1
