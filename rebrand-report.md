@@ -8,7 +8,7 @@ Job status: success
    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/screens/onboarding_screen.dart:1419:33 • deprecated_member_use
    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/screens/settings_screen.dart:262:59 • deprecated_member_use
    info • Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check. Guard a 'State.context' use with a 'mounted' check on the State, and other BuildContext use with a 'mounted' check on the BuildContext • lib/screens/settings_screen.dart:715:50 • use_build_context_synchronously
-warning • The declaration '_buildShizukuCard' isn't referenced. Try removing the declaration of '_buildShizukuCard' • lib/screens/settings_screen.dart:937:10 • unused_element
+warning • The declaration '_buildShizukuCard' isn't referenced. Try removing the declaration of '_buildShizukuCard' • lib/screens/settings_screen.dart:940:10 • unused_element
    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/screens/task_history_screen.dart:139:66 • deprecated_member_use
    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/screens/task_history_screen.dart:183:78 • deprecated_member_use
    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/screens/task_history_screen.dart:185:97 • deprecated_member_use
@@ -63,11 +63,63 @@ warning • The value of the local variable 'parsedJsonStr' isn't used. Try remo
    info • Don't invoke 'print' in production code. Try using a logging framework • test_parse.dart:23:7 • avoid_print
    info • Don't invoke 'print' in production code. Try using a logging framework • test_parse.dart:25:7 • avoid_print
 
-115 issues found. (ran in 8.1s)
+115 issues found. (ran in 8.6s)
 ```
 
 ## test
 ```
+  image 4.8.0 (4.10.1 available)
+  installed_apps 1.6.0 (2.2.0 available)
+  jni 1.0.0 (1.1.0 available)
+  jni_flutter 1.0.1 (1.0.4+1 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  mime 2.0.0 (2.1.0 available)
+  objective_c 9.4.1 (9.6.2 available)
+  package_config 2.2.0 (3.0.0 available)
+  permission_handler 11.4.0 (13.0.2 available)
+  permission_handler_android 12.1.0 (14.1.0 available)
+  permission_handler_apple 9.4.10 (9.6.2 available)
+  permission_handler_html 0.1.3+5 (0.1.4+1 available)
+  permission_handler_platform_interface 4.3.0 (4.4.1 available)
+  permission_handler_windows 0.2.1 (0.2.2 available)
+  petitparser 7.0.2 (7.1.0 available)
+  platform 3.1.6 (3.2.0 available)
+  posix 6.5.0 (6.5.2 available)
+  pub_semver 2.2.0 (2.2.1 available)
+  record_use 0.6.0 (1.1.1 available)
+  screen_brightness 1.0.1 (2.1.11 available)
+  screen_brightness_android 1.0.1 (2.1.6 available)
+  screen_brightness_ios 1.0.1 (2.1.4 available)
+  screen_brightness_macos 1.0.1 (2.1.4 available)
+  screen_brightness_platform_interface 1.0.1 (2.1.2 available)
+  screen_brightness_windows 1.0.1 (2.1.2 available)
+  share_plus 13.2.0 (13.3.1 available)
+  share_plus_platform_interface 7.1.0 (7.2.0 available)
+  shared_preferences 2.5.5 (2.5.6 available)
+  shared_preferences_android 2.4.23 (2.4.28 available)
+  shared_preferences_foundation 2.5.6 (2.5.7 available)
+  shizuku_api 1.2.2 (1.2.3 available)
+  speech_to_text 7.4.0 (7.5.0 available)
+  speech_to_text_platform_interface 2.4.0 (2.5.0 available)
+  stack_trace 1.12.1 (1.12.2 available)
+  test_api 0.7.12 (0.7.14 available)
+  timezone 0.10.1 (0.11.1 available)
+  url_launcher 6.3.2 (6.3.3 available)
+  url_launcher_android 6.3.30 (6.3.33 available)
+  url_launcher_ios 6.4.1 (6.4.2 available)
+  url_launcher_linux 3.2.2 (3.2.3 available)
+  url_launcher_macos 3.2.5 (3.2.6 available)
+  url_launcher_windows 3.1.5 (3.1.6 available)
+  uuid 4.5.3 (4.6.0 available)
+  vm_service 15.2.0 (15.3.0 available)
+  volume_controller 2.0.8 (3.7.1 available)
+  win32 6.3.0 (6.4.0 available)
+  xml 6.6.1 (7.1.0 available)
+  yaml 3.1.3 (3.1.4 available)
+Got dependencies!
+1 package is discontinued.
+61 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
 
 ::group::✅ Passing tests
 ✅ recognizes only the NVIDIA hosted API URL
@@ -80,6 +132,22 @@ warning • The value of the local variable 'parsedJsonStr' isn't used. Try remo
 
 ## build
 ```
+  url_launcher 6.3.2 (6.3.3 available)
+  url_launcher_android 6.3.30 (6.3.33 available)
+  url_launcher_ios 6.4.1 (6.4.2 available)
+  url_launcher_linux 3.2.2 (3.2.3 available)
+  url_launcher_macos 3.2.5 (3.2.6 available)
+  url_launcher_windows 3.1.5 (3.1.6 available)
+  uuid 4.5.3 (4.6.0 available)
+  vm_service 15.2.0 (15.3.0 available)
+  volume_controller 2.0.8 (3.7.1 available)
+  win32 6.3.0 (6.4.0 available)
+  xml 6.6.1 (7.1.0 available)
+  yaml 3.1.3 (3.1.4 available)
+Got dependencies!
+1 package is discontinued.
+61 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
 Running Gradle task 'assembleDebug'...                          
 Warning: Flutter support for your project's Gradle version (8.14.0) will soon be dropped. Please upgrade your Gradle version to a version of at least 9.1.0 soon.
 Alternatively, use the flag "--android-skip-build-dependency-validation" to bypass this check.
@@ -122,48 +190,19 @@ Preparing "Install CMake 3.22.1 v.3.22.1".
 Installing CMake 3.22.1 in /usr/local/lib/android/sdk/cmake/3.22.1
 "Install CMake 3.22.1 v.3.22.1" complete.
 "Install CMake 3.22.1 v.3.22.1" finished.
-Running Gradle task 'assembleDebug'...                            372.3s
+Running Gradle task 'assembleDebug'...                            331.5s
 ✓ Built build/app/outputs/flutter-apk/app-debug.apk
 ```
 
 ## commit
 ```
 === staged files ===
-M	.gitignore
-M	README.md
-M	analysis_options.yaml
-M	android/app/build.gradle.kts
-M	android/app/src/main/AndroidManifest.xml
-R098	android/app/src/main/kotlin/com/orailnoor/privateagent/AgentAccessibilityService.kt	android/app/src/main/kotlin/com/smoke/AgentAccessibilityService.kt
-R096	android/app/src/main/kotlin/com/orailnoor/privateagent/MainActivity.kt	android/app/src/main/kotlin/com/smoke/MainActivity.kt
-R080	android/app/src/main/kotlin/com/orailnoor/privateagent/Test.kt	android/app/src/main/kotlin/com/smoke/Test.kt
-M	android/app/src/main/res/mipmap-hdpi/ic_launcher.png
-M	android/app/src/main/res/mipmap-mdpi/ic_launcher.png
-M	android/app/src/main/res/mipmap-xhdpi/ic_launcher.png
-M	android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png
-M	android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png
-M	android/app/src/main/res/values/strings.xml
-M	android/app/src/main/res/xml/accessibility_service_config.xml
-D	android/build/reports/problems/problems-report.html
-M	assets/app-logo.png
-M	lib/main.dart
 M	lib/overlay_main.dart
 M	lib/screens/home_screen.dart
-M	lib/screens/onboarding_screen.dart
 M	lib/screens/settings_screen.dart
-M	lib/screens/task_history_screen.dart
-M	lib/services/ai_service.dart
-M	lib/services/screen_automation_service.dart
-M	lib/services/task_executor.dart
-M	pubspec.lock
 M	pubspec.yaml
-M	test/ai_service_test.dart
-[main b18c85c] Rebrand app as Smoker-Agent [skip ci]
- 29 files changed, 224 insertions(+), 906 deletions(-)
- rename android/app/src/main/kotlin/com/{orailnoor/privateagent => smoke}/AgentAccessibilityService.kt (98%)
- rename android/app/src/main/kotlin/com/{orailnoor/privateagent => smoke}/MainActivity.kt (96%)
- rename android/app/src/main/kotlin/com/{orailnoor/privateagent => smoke}/Test.kt (80%)
- delete mode 100644 android/build/reports/problems/problems-report.html
+[main 405376f] fix: complete Smoker-Agent branding [skip ci]
+ 4 files changed, 11 insertions(+), 8 deletions(-)
 To https://github.com/mobiclawtest-cell/private-agent
-   2151212..b18c85c  main -> main
+   b647f53..405376f  main -> main
 ```
