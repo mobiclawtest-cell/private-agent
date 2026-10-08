@@ -8,13 +8,13 @@ Job status: success
    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/screens/onboarding_screen.dart:1419:33 • deprecated_member_use
    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/screens/settings_screen.dart:262:59 • deprecated_member_use
    info • Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check. Guard a 'State.context' use with a 'mounted' check on the State, and other BuildContext use with a 'mounted' check on the BuildContext • lib/screens/settings_screen.dart:715:50 • use_build_context_synchronously
-warning • The declaration '_buildShizukuCard' isn't referenced. Try removing the declaration of '_buildShizukuCard' • lib/screens/settings_screen.dart:940:10 • unused_element
+warning • The declaration '_buildShizukuCard' isn't referenced. Try removing the declaration of '_buildShizukuCard' • lib/screens/settings_screen.dart:939:10 • unused_element
    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/screens/task_history_screen.dart:139:66 • deprecated_member_use
    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/screens/task_history_screen.dart:183:78 • deprecated_member_use
    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/screens/task_history_screen.dart:185:97 • deprecated_member_use
    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/screens/task_history_screen.dart:222:92 • deprecated_member_use
    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/screens/task_history_screen.dart:247:58 • deprecated_member_use
-   info • Don't invoke 'print' in production code. Try using a logging framework • lib/services/ai_service.dart:651:7 • avoid_print
+   info • Don't invoke 'print' in production code. Try using a logging framework • lib/services/ai_service.dart:659:7 • avoid_print
    info • Use the null-aware marker '?' rather than a null check via an 'if'. Try using '?' • lib/services/alarm_service.dart:16:11 • use_null_aware_elements
    info • Use the null-aware marker '?' rather than a null check via an 'if'. Try using '?' • lib/services/alarm_service.dart:39:11 • use_null_aware_elements
    info • Don't invoke 'print' in production code. Try using a logging framework • lib/services/chat_history_service.dart:54:7 • avoid_print
@@ -63,7 +63,7 @@ warning • The value of the local variable 'parsedJsonStr' isn't used. Try remo
    info • Don't invoke 'print' in production code. Try using a logging framework • test_parse.dart:23:7 • avoid_print
    info • Don't invoke 'print' in production code. Try using a logging framework • test_parse.dart:25:7 • avoid_print
 
-115 issues found. (ran in 8.6s)
+115 issues found. (ran in 8.0s)
 ```
 
 ## test
@@ -190,19 +190,18 @@ Preparing "Install CMake 3.22.1 v.3.22.1".
 Installing CMake 3.22.1 in /usr/local/lib/android/sdk/cmake/3.22.1
 "Install CMake 3.22.1 v.3.22.1" complete.
 "Install CMake 3.22.1 v.3.22.1" finished.
-Running Gradle task 'assembleDebug'...                            331.5s
+Running Gradle task 'assembleDebug'...                            307.6s
 ✓ Built build/app/outputs/flutter-apk/app-debug.apk
 ```
 
 ## commit
 ```
 === staged files ===
-M	lib/overlay_main.dart
-M	lib/screens/home_screen.dart
 M	lib/screens/settings_screen.dart
+M	lib/services/ai_service.dart
 M	pubspec.yaml
-[main 405376f] fix: complete Smoker-Agent branding [skip ci]
- 4 files changed, 11 insertions(+), 8 deletions(-)
+[main 7ddd4ab] fix: remove upstream author from app, preconfigure OpenRouter defaults [skip ci]
+ 3 files changed, 15 insertions(+), 8 deletions(-)
 To https://github.com/mobiclawtest-cell/private-agent
-   b647f53..405376f  main -> main
+   c2b9bf7..7ddd4ab  main -> main
 ```
