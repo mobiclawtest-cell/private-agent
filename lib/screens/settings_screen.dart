@@ -831,12 +831,15 @@ class _SettingsScreenState extends State<SettingsScreen>
             children: [
               ListTile(
                 contentPadding: EdgeInsets.zero,
-                title: const Text('Project Repository'),
-                subtitle: const Text('Original project by orailnoor & Tech Jarves'),
-                leading: const Icon(Icons.code_rounded),
+                title: const Text('Watch on YouTube'),
+                subtitle: const Text('Demo video and tutorials'),
+                leading: const Icon(
+                  Icons.play_circle_fill_rounded,
+                  color: Colors.red,
+                ),
                 onTap: () {
                   launchUrl(
-                    Uri.parse('https://github.com/orailnoor/private-agent'),
+                    Uri.parse('https://youtube.com/shorts/TgBEnZhTSVs?si=NBb_Niws_htZY1XN'),
                     mode: LaunchMode.externalApplication,
                   );
                 },
