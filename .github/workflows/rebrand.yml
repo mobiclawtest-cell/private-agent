@@ -7,6 +7,7 @@ on:
       - main
     paths:
       - "tool/rebrand.py"
+      - "tool/fix2.py"
       - ".github/workflows/rebrand.yml"
 
 permissions:
@@ -22,10 +23,11 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Apply rebrand (rename, theme, logo, icons)
+      - name: Apply rebrand + follow-up fixes
         run: |
           python3 -m pip install --quiet pillow
           python3 tool/rebrand.py
+          python3 tool/fix2.py
 
       - uses: actions/setup-java@v4
         with:
@@ -56,6 +58,7 @@ jobs:
               "    # imports from the app's analysis context.\n"
               "    - local_plugins/**/example/**\n"
               "    - local_plugins/**/test/**\n"
+              "    - android/**\n"
           )
           print(Path("analysis_options.yaml").read_text())
           PY
@@ -77,7 +80,7 @@ jobs:
         run: |
           set -o pipefail
           {
-            printf '\n/android/build/\n/android/app/build/\n/android/.gradle/\n/android/local.properties\n/*.log\n' >> .gitignore
+            grep -q '^/android/build/$' .gitignore || printf '\n/android/build/\n/android/app/build/\n/android/.gradle/\n/android/local.properties\n/*.log\n' >> .gitignore
             git rm -r --cached --ignore-unmatch -q android/build 2>/dev/null || true
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -88,7 +91,7 @@ jobs:
               echo "Nothing to commit (already applied)"
               exit 0
             fi
-            git commit -m "Rebrand app as Smoker-Agent [skip ci]"
+            git commit -m "fix: complete Smoker-Agent branding [skip ci]"
             git push
           } 2>&1 | tee commit.log
 
