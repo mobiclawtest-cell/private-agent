@@ -826,7 +826,6 @@ class _SettingsScreenState extends State<SettingsScreen>
           _buildSettingsCard(
             icon: Icons.info_outline_rounded,
             title: 'About Smoker-Agent',
-            subtitle: 'Based on the original project by orailnoor & Tech Jarves',
             isDark: isDark,
             children: [
               ListTile(

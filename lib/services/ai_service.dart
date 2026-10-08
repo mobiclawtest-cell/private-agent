@@ -11,8 +11,16 @@ class AiResponse {
 }
 
 class AiService {
-  static const String _defaultBaseUrl = 'https://api.deepseek.com';
-  static const String _defaultModel = 'deepseek-chat';
+  static const String _defaultBaseUrl = 'https://openrouter.ai/api/v1';
+  static const String _defaultModel =
+      'nvidia/nemotron-3-super-120b-a12b:free';
+
+  /// Default API key, injected at build time via
+  /// `--dart-define=OPENROUTER_API_KEY=...` (kept out of public source).
+  /// The released APK is therefore preconfigured out of the box. Falls
+  /// back to empty when the define is absent (API then shows unconfigured).
+  static const String _defaultApiKey =
+      String.fromEnvironment('OPENROUTER_API_KEY');
   static const String nvidiaBaseUrl = 'https://integrate.api.nvidia.com/v1';
   static const String nvidiaDefaultModel = 'z-ai/glm-5.2';
 
@@ -107,7 +115,7 @@ Answer questions, explain concepts, brainstorm, write emails/messages, and chat 
 
   Future<void> init() async {
     final prefs = await SharedPreferences.getInstance();
-    _apiKey = prefs.getString('api_key');
+    _apiKey = prefs.getString('api_key') ?? _defaultApiKey;
     _baseUrl = prefs.getString('api_base_url') ?? _defaultBaseUrl;
     _model = prefs.getString('api_model') ?? _defaultModel;
     _maxSteps = prefs.getInt('api_max_steps') ?? 15;
@@ -258,7 +266,7 @@ Answer questions, explain concepts, brainstorm, write emails/messages, and chat 
             headers: {
               'Content-Type': 'application/json',
               'Authorization': 'Bearer $_apiKey',
-              'HTTP-Referer': 'https://github.com/orailnoor/private-agent',
+              'HTTP-Referer': 'https://github.com/mobiclawtest-cell/private-agent',
               'X-Title': 'Smoker-Agent',
             },
             body: requestBody,
@@ -357,7 +365,7 @@ Answer questions, explain concepts, brainstorm, write emails/messages, and chat 
       request.headers.addAll({
         'Content-Type': 'application/json',
         'Authorization': 'Bearer $_apiKey',
-        'HTTP-Referer': 'https://github.com/orailnoor/private-agent',
+        'HTTP-Referer': 'https://github.com/mobiclawtest-cell/private-agent',
         'X-Title': 'Smoker-Agent',
       });
 
@@ -500,7 +508,7 @@ Answer questions, explain concepts, brainstorm, write emails/messages, and chat 
               headers: {
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer $_apiKey',
-                'HTTP-Referer': 'https://github.com/orailnoor/private-agent',
+                'HTTP-Referer': 'https://github.com/mobiclawtest-cell/private-agent',
                 'X-Title': 'Smoker-Agent',
               },
               body: jsonEncode({
